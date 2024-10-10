@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice page</title>
 </head>
+
 <body>
     <div id="root">
-        <h1>Hello World</h1>
+        <!-- <h1>Hello World</h1> -->
     </div>
+
+    <script>
+        // Create the h1 element
+        const h1 = document.createElement('h1');
+
+        // Set the content for the h1 element
+        h1.innerHTML = "Hello World From Javascript";
+
+        // Get the root element from the DOM
+        const root = document.getElementById('root');
+
+        // Append the h1 element to the root element
+        root.appendChild(h1);
+
+
+    </script>
 </body>
+
 </html>
