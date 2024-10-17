@@ -16,9 +16,11 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>  <!-- React DOm module --> <!--2 different module because this can also be used for mobile UI also -->
 
     <script>
-        var h1=React.createElement("h1")
-        var root=React.getElementById('root')
-        root.render(h1,"Hello World from react")
+        const heading=React.createElement("h1",{},"Hello World from React")   
+
+        const root=ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(heading)
     </script>
 </body>
 
