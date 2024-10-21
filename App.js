@@ -1,4 +1,3 @@
-
 /**
  * <div id=parent>
  *   <div id=child>
@@ -13,7 +12,6 @@
  * 
  * </div>
  */
-
 
 //to create nested html elements
 const parent = React.createElement("div", { id: 'parent' }, [React.createElement('div', { id: 'child' },
