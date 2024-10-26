@@ -1,0 +1,19 @@
+{
+  "name": "react-learning",
+  "version": "1.0.0",
+  "description": "React Understanding",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhaval-Joshi898/React.git"
+  },
+  "author": "Dhaval Joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhaval-Joshi898/React/issues"
+  },
+  "homepage": "https://github.com/Dhaval-Joshi898/React#readme"
+}
