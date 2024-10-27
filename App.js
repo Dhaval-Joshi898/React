@@ -1,29 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const parent = React.createElement("div", { id: 'parent' }, [React.createElement('div', { id: 'child' },
-    [React.createElement('h1', { id: 'heading1' }, "This is heading 1"), React.createElement('h2', { id: 'heading2' }, 'This is heading 2')]),
-    React.createElement('div', { id: 'child2' },
-        [React.createElement('h1', { id: 'heading1' }, "This is heading 1 of child 2"), React.createElement('h2', { id: 'heading2' }, 'This is heading 2 of child 2')])])
-        
-const root = ReactDOM.createRoot(document.getElementById('root'))     //createRoot is part of ReactDOM module
-        
-root.render(parent) 
+
+//Using core React
+// React ELement is OBJEct => to HTMl on (render)
+// const heading=React.createElement('h1',{id:"headings"},"Hello world from Core react")
+// const root =ReactDOM.createRoot(document.getElementById('root'))
+// root.render(heading)
+
+//USING JSX JSX :HTMl like syntax
+// JSX converted to react Element and then on render it converts to html for browser to understand
+const jsxheading=<h1 id='headingid' className='headingclass'>Hello World in react using JSX</h1>   
+const root =ReactDOM.createRoot(document.getElementById('root'))
+root.render(jsxheading)
 
 
- /**
-         * <div id=parent>
-         *   <div id=child>
-         *      <h1 id='heading1'> This is h1 </h1>   //used array to add these siblings
-         *      <h2 id='heading2'> This is heading 2</h2>  //used array to add these siblings
-         *   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const parent = React.createElement("div", { id: 'parent' }, [React.createElement('div', { id: 'child' },
+//     [React.createElement('h1', { id: 'heading1' }, "This is heading 1"), React.createElement('h2', { id: 'heading2' }, 'This is heading 2')]),
+//     React.createElement('div', { id: 'child2' },
+//         [React.createElement('h1', { id: 'heading1' }, "This is heading 1 of child 2"), React.createElement('h2', { id: 'heading2' }, 'This is heading 2 of child 2')])])
         
-         *   <div id=child2>
-         *      <h1 id='heading1'> This is heading 1 of child 2 </h1>   //used array to add these siblings
-         *      <h2 id='heading2'> This is heading 2 of child 2</h2>  //used array to add these siblings
-         *   </div>
-         * 
-         * </div>
-         */
+// const root = ReactDOM.createRoot(document.getElementById('root'))     //createRoot is part of ReactDOM module
         
-        //to create nested html elements
+// root.render(parent) 
+
+
+
