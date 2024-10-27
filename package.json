@@ -4,7 +4,8 @@
   "description": "React Understanding",
   "scripts": {
     "start":"parcel index.html",
-    "prodbuild":"parcel build index.html",   
+    "prodbuild":"parcel build index.html", 
+      
     "test": "jest"
   },
   "repository": {
