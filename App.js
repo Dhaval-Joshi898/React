@@ -39,4 +39,4 @@ const BodyCompo = () =>
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<BodyCompo2 />)
+root.render(<BodyCompo />)
