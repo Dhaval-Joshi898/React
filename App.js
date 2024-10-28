@@ -9,18 +9,23 @@ import ReactDOM from 'react-dom/client';
 //JS arrow function single line ---> 
 
 //const fn=()=> console.log('Heloo)  PEFECTLY valid
-const HeadCompo = () => <h1>Heading inside Heading component</h1>  //Component without return keyword
+const HeadCompo = () => <h1>
+    Heading inside Heading component
+    </h1>  //Component without return keyword
 //for multiline JSX code use () like below
 
 const BodyCompo = () =>
 (
     <div id='container'>
-        <HeadCompo />
+        <HeadCompo />    {/* //Component Composition */}
         <h2>Body Component </h2>
         <a href="www.google.com">Google</a>
     </div>
 )
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(<BodyCompo />)
 //NOTE IF YOU are using CURLY Brackets {} then use  the "RETURN" keyword
 
 // const HeadCompo2 = () => {
@@ -37,6 +42,6 @@ const BodyCompo = () =>
 // )
 // }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+// const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<BodyCompo />)
+// root.render(<BodyCompo2 />)
