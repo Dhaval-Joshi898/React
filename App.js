@@ -37,17 +37,18 @@ const Header = () => {
 
 
 const RestaurantCard = (prop) => {
-    console.log(prop)
+    // console.log(prop)    RETURNS OBJECT
     const { resData } = prop
-    const {name,cuisines,costForTwo,deliveryTime}=resData?.data
-    // console.log(resData)
+    const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating}=resData?.data
+   
     return (
         <div className='restro-card' style={{ backgroundColor: 'f0f0f0' }}>
             <div className='restro-logo'>
-                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/n7wbtvlifwbw5y4a7rrv" alt="restro-logo" />
+                <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,e_grayscale/"+cloudinaryImageId} alt="restro-logo" />
             </div>
             <h3>{name}</h3>
             <h4>{cuisines.join(', ')}</h4>
+            <h4>{avgRating + ' stars'}</h4>
             <h4>{'₹'+costForTwo/100 + 'for Two'}</h4>
             <h4>{deliveryTime +' mins'}</h4>
 
@@ -1949,11 +1950,12 @@ const Body = () => {
             </div>
             <div className='restaurant-container'>
 
-                {resList.map((Restaurant) => {
-                    return < RestaurantCard resData={Restaurant} />
+                {resList.map((restaurant) => {
+                    return < RestaurantCard key={restaurant.data.id} resData={restaurant} /> 
+                    //key is IMPORTANT to have unique key
                 })}
 
-                {/* < RestaurantCard resName="Dominos " resCuisine='french'/> */}
+              
 
 
             </div>
