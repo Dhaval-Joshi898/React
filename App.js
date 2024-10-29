@@ -9,16 +9,20 @@ import ReactDOM from 'react-dom/client';
 //JS arrow function single line ---> 
 
 //const fn=()=> console.log('Heloo)  PEFECTLY valid
-const HeadCompo = () => <h1>
-    Heading inside Heading component
-    </h1>  //Component without return keyword
+const HeadCompo = () => <h1> Heading inside Heading component </h1>  //Component without return keyword
+
 //for multiline JSX code use () like below
 
 const BodyCompo = () =>
 (
     <div id='container'>
-        <HeadCompo />    {/* //Component Composition */}
-        <h2>Body Component </h2>
+        {/* <HeadCompo />    //Component Composition */}
+        <h2>Body Component </h2> 
+
+        {/* Different ways to use component inside anothe rcomponent */}
+        {HeadCompo()}              {/*1st way*/}
+        <HeadCompo></HeadCompo>    {/*2nd way*/}
+        <HeadCompo/>                {/*3rd way*/}
         <a href="www.google.com">Google</a>
     </div>
 )
