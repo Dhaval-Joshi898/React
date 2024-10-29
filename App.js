@@ -1,51 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+/**
+ *  Header
+ *   - Logo
+ *    -Nav items
+ *  Body
+ *    -Search
+ *     -Restaurant COntainer
+ *     -Restaurant Card
+ *   Footer
+ *     - Copyright
+ *     -Links
+ *     -Address
+ *     -COntacts
+ */
 
-//React Components: Class based components AND Functional Components
+const AppLayout=()=>{
+    return(
+        <div className='app-container'>
 
-//  Functional Components :This is a JAVASCRIPT FUNCTION which returns a JScode or React Element
-
-//JS arrow function single line ---> 
-
-//const fn=()=> console.log('Heloo)  PEFECTLY valid
-const HeadCompo = () => <h1> Heading inside Heading component </h1>  //Component without return keyword
-
-//for multiline JSX code use () like below
-
-const BodyCompo = () =>
-(
-    <div id='container'>
-        {/* <HeadCompo />    //Component Composition */}
-        <h2>Body Component </h2> 
-
-        {/* Different ways to use component inside anothe rcomponent */}
-        {HeadCompo()}              {/*1st way*/}
-        <HeadCompo></HeadCompo>    {/*2nd way*/}
-        <HeadCompo/>                {/*3rd way*/}
-        <a href="www.google.com">Google</a>
-    </div>
-)
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
-root.render(<BodyCompo />)
-//NOTE IF YOU are using CURLY Brackets {} then use  the "RETURN" keyword
-
-// const HeadCompo2 = () => {
-//   return  <h1>Heading inside Heading component 2</h1>
-// }
-
-// const BodyCompo2 = () =>{
-// return(
-//     <div id='container'>
-//         <HeadCompo2 />
-//         <h2>Body Component 2 </h2>
-//         <a href="www.google.com">Google</a>
-//     </div>
-// )
-// }
-
-// const root = ReactDOM.createRoot(document.getElementById('root'))
-
-// root.render(<BodyCompo2 />)
+        </div>
+    )
+}
