@@ -18,10 +18,9 @@ import ReactDOM from 'react-dom/client';
 
 const Header = () => {
     return (
-        <div className='header-container'>
+        <div className='header'>
 
-
-            <div id="image-container">
+            <div id="header-logo-container">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWycK1c1Xf9Hr8MrAwj16q1XlDyYy1euwybQ&s" alt="app-logo" />
             </div>
             <div className="nav-items">
@@ -36,14 +35,16 @@ const Header = () => {
     )
 }
 
-const RestroCard = () => {
+
+const RestaurantCard = (prop) => {
+    console.log(prop)
     return (
-        <div className='restro-card'>
-            <div className='restro-image'>
-                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/n7wbtvlifwbw5y4a7rrv" alt="restro-image" />
+        <div className='restro-card' style={{ backgroundColor: 'f0f0f0' }}>
+            <div className='restro-logo'>
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/n7wbtvlifwbw5y4a7rrv" alt="restro-logo" />
             </div>
-            <h3>Pizza Box</h3>
-            <h4>Fast food,Italian</h4>
+            <h3>{prop.resName}</h3>
+            <h4>{prop.resCuisine}</h4>
             <h4>4.3 stars</h4>
             <h4>30 mins</h4>
 
@@ -53,40 +54,16 @@ const RestroCard = () => {
 
 const Body = () => {
     return (
-        <div className="body-container">
+        <div className="body">
             <div className='search'>
                 Search
             </div>
             <div className='restaurant-container'>
-                <div className='restaurant-card'>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                    <RestroCard/>
-                </div>
+
+                < RestaurantCard  resName="pizza hut" resCuisine='Italian'/>    {}
+                < RestaurantCard resName="Dominos " resCuisine='french'/>
+                
+
             </div>
         </div>
     )
@@ -96,7 +73,7 @@ const AppLayout = () => {
     return (
         <div className='app-container'>
             <Header />
-            <Body/>
+            <Body />
         </div>
     )
 }
