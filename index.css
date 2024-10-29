@@ -1,3 +1,47 @@
-#headingid{
-    color:red;
+#image-container img{
+    width: 90px; 
+    margin: 0 20px; 
 }
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.nav-items ul{
+    list-style: none;
+    display: flex;
+    
+    
+}
+.nav-items ul li{
+    margin:12px;
+    padding: 5px;
+    font-size: 20px;
+}
+.restro-image img{
+    width:190px;
+    padding: 4px;
+}
+.restro-card{
+    border: 1px solid black;
+    background-color: #f0f0f0;
+    margin: 10px;
+    padding: 5px;
+    width: 200px;
+    height: 300px;
+
+
+}
+
+.restro-card:hover{
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.restaurant-card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
