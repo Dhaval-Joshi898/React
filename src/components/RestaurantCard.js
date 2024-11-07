@@ -4,10 +4,9 @@ const RestaurantCard = (prop) => {
     
     // console.log(prop)    RETURNS OBJECT
     const { resData } = prop
-
-
+    
     // const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating}=resData?.data
-    const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating,sla}=resData?.info
+    const {name,cuisines,costForTwo,sla,cloudinaryImageId,avgRating}=resData?.info
     const {slaString}=sla
    
     return (

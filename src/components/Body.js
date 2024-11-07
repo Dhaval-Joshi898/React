@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-
     // Super local State varaibles
     // let [listOfRestaurants, setlist0fRestaurants] = useState(resList) //hooks
     let [listOfRestaurants, setlist0fRestaurants] = useState([]) //hooks
@@ -25,9 +24,11 @@ const Body = () => {
 
     }
 
-     //on laoding give shimmer UI (skeleton UI)
+     
+    //THIS is called CONDITIONAL RENDERING        //on laoding give shimmer UI (skeleton UI)
      if (listOfRestaurants.length === 0){
-        return <Shimmer />   //this will not go below and exit it and if listOfrestaurants contain data this condition is ignored otherwise this coponent will render
+        return <Shimmer />   
+        //this will not go below and exit it and if listOfrestaurants contain data this condition is ignored otherwise this coponent will render
      }
 
 
@@ -47,7 +48,7 @@ const Body = () => {
                 {listOfRestaurants.map((restaurant) => {
                     return < RestaurantCard key={restaurant.info.id} resData={restaurant} />
                     // return < RestaurantCard key={restaurant.data.id} resData={restaurant} />
-                    //key is IMPORTANT to have unique key
+                    //key ,it is IMPORTANT to have unique key
                 })}
 
             </div>
