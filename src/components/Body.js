@@ -25,14 +25,14 @@ const Body = () => {
     }
 
      
-    //THIS is called CONDITIONAL RENDERING        //on laoding give shimmer UI (skeleton UI)
-     if (listOfRestaurants.length === 0){
-        return <Shimmer />   
-        //this will not go below and exit it and if listOfrestaurants contain data this condition is ignored otherwise this coponent will render
-     }
-
-
-    return (
+    // //THIS is called CONDITIONAL RENDERING        //on laoding give shimmer UI (skeleton UI)
+    //  if (listOfRestaurants.length === 0){
+    //     return <Shimmer />   
+    //  }
+    
+    //THE Below code is like if else using TERNARY OPERATOR
+    return listOfRestaurants.length === 0 ?
+    <Shimmer />: (
         <div className="body">
             <div className='filter'>
                 <button className="filter-btn"
