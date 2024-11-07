@@ -7,14 +7,7 @@ const RestaurantCard = (prop) => {
 
 
     // const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating}=resData?.data
-    const { 
-        name = "Unknown Restaurant", 
-        cuisines = [], 
-        costForTwo = 0, 
-        sla = "N/A", 
-        cloudinaryImageId = "", 
-        avgRating = "N/A" 
-    } = resData?.info || {}; // Use an empty object as a fallback
+    const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating,sla}=resData?.info
     const {slaString}=sla
    
     return (
