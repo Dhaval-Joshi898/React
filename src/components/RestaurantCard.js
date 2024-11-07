@@ -4,7 +4,18 @@ const RestaurantCard = (prop) => {
     
     // console.log(prop)    RETURNS OBJECT
     const { resData } = prop
-    const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating}=resData?.data
+
+
+    // const {name,cuisines,costForTwo,deliveryTime,cloudinaryImageId,avgRating}=resData?.data
+    const { 
+        name = "Unknown Restaurant", 
+        cuisines = [], 
+        costForTwo = 0, 
+        sla = "N/A", 
+        cloudinaryImageId = "", 
+        avgRating = "N/A" 
+    } = resData?.info || {}; // Use an empty object as a fallback
+    const {slaString}=sla
    
     return (
         <div className='restro-card' style={{ backgroundColor: 'f0f0f0' }}>
@@ -14,8 +25,8 @@ const RestaurantCard = (prop) => {
             <h3>{name}</h3>
             <h4>{cuisines.join(', ')}</h4>
             <h4>{avgRating + ' stars'}</h4>
-            <h4>{'₹'+costForTwo/100 + 'for Two'}</h4>
-            <h4>{deliveryTime +' mins'}</h4>
+            <h4>{costForTwo}</h4>
+            <h4>{slaString}</h4>
 
         </div>
     )
