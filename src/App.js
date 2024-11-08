@@ -7,7 +7,6 @@ const AppLayout = () => {
     return (
         <div className='app-container'>
             <Header />
-       
             <Body />
         </div>
     )
