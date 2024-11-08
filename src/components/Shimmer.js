@@ -1,5 +1,5 @@
 const Shimmer=()=>{
-    return(<div class="shimmer-container">
+    return(<div className="shimmer-container">
         <div id='shimmer-card'>
            <div className="shimmer-imgBlock">
            </div>
