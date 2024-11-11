@@ -1,11 +1,12 @@
 import { useRouteError } from "react-router-dom";
 
 const Error=()=>{
-   
+   const error=useRouteError()
+   console.log(error)
     return(
       <div className="contact-section">
-        <h1>error</h1>
-        {/* <h2> {err.status}: {err.error.message}</h2> */}
+        <h2>{error.status}: {error.error.message}</h2>
+   
       </div>
     )
 }
