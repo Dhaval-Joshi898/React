@@ -55,7 +55,7 @@ const Body = () => {
                         onClick={() => {
                             let filtered = listOfRestaurants.filter((res) => res.info.avgRating > 4.1);
                             console.log(filtered);
-                            setlist0fRestaurants(filtered)
+                            setfilteredRestaurants(filtered)
                         }}>Filter</button>
                 </div>
 
