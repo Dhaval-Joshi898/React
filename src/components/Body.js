@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  
+
     // Super local State varaibles
     // let [listOfRestaurants, setlist0fRestaurants] = useState(resList) //hooks
     let [listOfRestaurants, setlist0fRestaurants] = useState([]) //hooks
@@ -14,7 +14,7 @@ const Body = () => {
         console.log('after ui rendered body use effect');
         fetchData();
     }, [])
-    
+                                  
     //fetching data from swiggy api
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2993420046926&lng=72.86991979871428&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
@@ -25,7 +25,6 @@ const Body = () => {
         setlist0fRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //array jaa rha hai list0fRestaurants mein
         setfilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //Will be using this manipulation like search filtered
         
-
     }
 
 
@@ -39,7 +38,7 @@ const Body = () => {
         <Shimmer /> : (
             <div className="body">
                 <div className='filter'>
-
+  
                     <div className="search-div">
                         <input type="text"  value={searchText} onChange={(e)=>{
                             setSearchText(e.target.value)
