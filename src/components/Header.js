@@ -18,7 +18,7 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
-                    <li>About us</li>
+                    <li >About us</li>
                     <li>Contact us</li>
                     <li>Cart</li>
                     <button className="log-btn" onClick={()=>{
