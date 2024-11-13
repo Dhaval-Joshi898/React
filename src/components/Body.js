@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -19,9 +20,9 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2993420046926&lng=72.86991979871428&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
-        const json = await data.json() //converted to json
-        // console.log(json)
-        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+        const json = await data.json() 
+     
+     
         setlist0fRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //array jaa rha hai list0fRestaurants mein
         setfilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //Will be using this manipulation like search filtered
         
@@ -62,7 +63,7 @@ const Body = () => {
                 <div className='restaurant-container'>
 
                     {filteredRestaurants.map((restaurant) => {
-                        return < RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                        return <Link  key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id} > < RestaurantCard resData={restaurant} /> </Link>
                         // return < RestaurantCard key={restaurant.data.id} resData={restaurant} />
                         //key ,it is IMPORTANT to have unique key
                     })}
