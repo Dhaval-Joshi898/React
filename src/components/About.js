@@ -11,8 +11,10 @@ const About=()=>{
              <h1>About us Page</h1>
              <h3>About us page thorugh router</h3>
 
-             <User  data={obj}/>
-             <UserClass/>
+             <User  data={obj} email={"joshidhaval2002@gmail.com"}/>
+
+             {/* Class Based components -->how to pass props */}
+             <UserClass  name={'Dhaval Joshi class props'} location={"Bhayander"}/>
         </div>
     )
 }
