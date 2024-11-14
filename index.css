@@ -84,3 +84,8 @@
 .menu-list{
     border: 1px solid black;
 }
+
+.userInfo-container{
+    padding:10px;
+    border:1px solid black;
+}
