@@ -1,52 +1,56 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import {MENU_API} from "../../utils/constants";
+import { MENU_API } from "../../utils/constants";
 
 const MenuCard = () => {
   const [resInfo, setResInfo] = useState(null);
 
-  const {resId}=useParams()   //this was passed in dynamic route inside App.js liek this:resId
-  //it gives object containing dynamic route (id) i.e resID we destructred it
-  
+  const { resId } = useParams(); // Destructuring resId from dynamic route
 
   useEffect(() => {
     fetchMenu();
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API+resId );
+    const data = await fetch(MENU_API + resId);
     const json = await data.json();
-
-    // console.log(json.data);
-    // console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards)
+    // console.log(resId);
     setResInfo(json.data);
+    // console.log(json.data);
   };
 
   if (resInfo === null) {
     return <Shimmer />;
   }
 
+  // Extracting basic restaurant details
   const { name, costForTwoMessage, cuisines } =
-    resInfo?.cards[2]?.card?.card?.info;
+    resInfo?.cards[2]?.card?.card?.info || {};
 
-  const { itemCards } =
-    resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
-  console.log(itemCards);
+  // Finding the index of the card with title "Recommended" 
+  //Doing this because recommended title is at cards[2] index then .card.card.title and some are at cards[1].card.card.title 
+  const recommendedCard = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(
+    (card) => card?.card?.card?.title === "Recommended"
+    //the first card is name to current element of array i.e json so it is like card{card:{card:{title}}}
+  );
+  console.log("recommendedCArdssssssssssss",recommendedCard)
+  // Extract itemCards from the "Recommended" card if it exists
+  const {itemCards} = recommendedCard?.card?.card || [];
+  console.log("items cardsssssssss",itemCards)
+
   return (
     <div className="menu-card-container">
       <h2>{name}</h2>
-      <h3>{cuisines.join(",")}</h3>
+      <h3>{cuisines?.join(",")}</h3>
       <h4>{costForTwoMessage}</h4>
       <div className="menu-list">
         <ul>
-          {itemCards.map((items) => {
-            // {console.log(items)}
+          {itemCards.map((item) => {
             return (
-              <li key={items?.card?.info?.id}>
-                {items?.card?.info?.name} - Rs{" "}
-                {items?.card?.info?.price / 100 ||
-                  items?.card?.info?.defaultPrice / 100}{" "}
+              <li key={item?.card?.info?.id}>
+                {item?.card?.info?.name} - Rs{" "}
+                {item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}
               </li>
             );
           })}
@@ -55,5 +59,6 @@ const MenuCard = () => {
     </div>
   );
 };
+
 
 export default MenuCard;
