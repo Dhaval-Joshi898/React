@@ -14,6 +14,8 @@ const About=()=>{
 
              {/* Class Based components -->how to pass props */}
              <UserClass  name={'Dhaval Joshi class props'} location={"Bhayander"}/>
+             
+      
         </div>
     )
 }
