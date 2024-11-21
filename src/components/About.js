@@ -1,23 +1,34 @@
 import User from "./User";
 import UserClass from "./UserClassComponent";
-const About=()=>{
-    const obj={
-        name:"Dhaval",
-        mail:"joshidhaval2002@gmail.com"
+import React from "react";
+
+
+class About extends React.Component{
+    constructor(props){
+        super(props)
+       console.log("Parent Class Construtor called")
     }
 
+    componentDidMount(){
+        console.log("Parent Component did mount")
+    }
+
+    render(){
     return( 
         <div className="about-section">
              <h1>About us Page</h1>
              <h3>About us page thorugh router</h3>
+             {console.log('Parent Class render called ')}
 
 
              {/* Class Based components -->how to pass props */}
              <UserClass  name={'Dhaval Joshi class props'} location={"Bhayander"}/>
+
              
       
         </div>
     )
+}
 }
 
 export default About;

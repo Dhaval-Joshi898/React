@@ -34,6 +34,7 @@ const MenuCard = () => {
     (card) => card?.card?.card?.title === "Recommended"
     //the first card is name to current element of array i.e json so it is like card{card:{card:{title}}}
   );
+  
   console.log("recommendedCArdssssssssssss",recommendedCard)
   // Extract itemCards from the "Recommended" card if it exists
   const {itemCards} = recommendedCard?.card?.card || [];
