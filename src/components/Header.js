@@ -8,7 +8,7 @@ const Header = () => {
   let [changeBtn, setBtn] = useState("Login");
 
   useEffect(() => {
-    console.log("use effect header");
+    // console.log("use effect header");
   }, [changeBtn]);
 
   return (
