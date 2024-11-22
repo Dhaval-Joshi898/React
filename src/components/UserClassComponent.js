@@ -1,4 +1,5 @@
 import React from "react";
+import ClassTest from "./ClassTest";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class UserClass extends React.Component {
   }
 
   componentDidMount(){
-    {console.log("Child Component Did Mount called")}
+    console.log(this.props.name,"Child Component Did Mount called")
   }
 
   render() {
@@ -22,6 +23,7 @@ class UserClass extends React.Component {
       <div className="userInfo-container">
          
         <h1>{this.state.count}</h1>
+        {console.log(this.props.name,"Child render called")}
         <button onClick={() => {
           this.setState({
             count: this.state.count + 1,
@@ -32,8 +34,8 @@ class UserClass extends React.Component {
         <h2>Name:{name}</h2>
         <h3>location:{location}</h3>
         <h4>joshidhaval2002@gmail.com</h4>
-
-        {console.log("Child Constructor called")}
+        
+        <ClassTest name={"NESTED props "}/> 
       </div>
     
     );
