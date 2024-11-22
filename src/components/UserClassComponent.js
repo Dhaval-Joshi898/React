@@ -7,7 +7,11 @@ class UserClass extends React.Component {
       count: 0,
       count2: 2
     } 
+      console.log("Child Constructor called")
+  }
 
+  componentDidMount(){
+    {console.log("Child Component Did Mount called")}
   }
 
   render() {
@@ -16,8 +20,8 @@ class UserClass extends React.Component {
 
     return (
       <div className="userInfo-container">
-
-        <h1>{this.state.count2}</h1>
+         
+        <h1>{this.state.count}</h1>
         <button onClick={() => {
           this.setState({
             count: this.state.count + 1,
@@ -28,7 +32,10 @@ class UserClass extends React.Component {
         <h2>Name:{name}</h2>
         <h3>location:{location}</h3>
         <h4>joshidhaval2002@gmail.com</h4>
+
+        {console.log("Child Constructor called")}
       </div>
+    
     );
   }
 }
