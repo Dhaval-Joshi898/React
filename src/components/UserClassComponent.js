@@ -4,38 +4,36 @@ import ClassTest from "./ClassTest";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      count: 0,
-      count2: 2
-    } 
-      console.log("Child Constructor called")
+    
+    this.state={
+      userInfo:{
+      name:"John Doe",
+      id:"random"
+      }
+    }
   }
 
-  componentDidMount(){
-    console.log(this.props.name,"Child Component Did Mount called")
+  async componentDidMount(){
+    const data= await fetch("https://api.github.com/users/Dhaval-Joshi898")
+    const json=await data.json()
+    console.log(json)
+
+    this.setState({
+      userInfo:json
+    })
   }
 
   render() {
     //destructuring props of class based components 
-    const { name, location } = this.props
+    // const { name, location } = this.props
+    // const {name}= json
 
     return (
       <div className="userInfo-container">
-         
-        <h1>{this.state.count}</h1>
-        {console.log(this.props.name,"Child render called")}
-        <button onClick={() => {
-          this.setState({
-            count: this.state.count + 1,
-            count2: this.state.count2+2
-          })
-        }}>Increase count</button>
-  
-        <h2>Name:{name}</h2>
-        <h3>location:{location}</h3>
+
+        <h2>Name:{this.state.userInfo.name}</h2>
+        {/* <h3>location:{location}</h3> */}
         <h4>joshidhaval2002@gmail.com</h4>
-        
-        <ClassTest name={"NESTED props "}/> 
       </div>
     
     );

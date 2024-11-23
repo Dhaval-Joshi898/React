@@ -23,7 +23,7 @@ class About extends React.Component{
 
              {/* Class Based components -->how to pass props */}
              <UserClass  name={'First Class'} location={"Bhayander"}/>
-             <UserClass  name={'Second Class'} location={"Bhayander"}/>
+            
 
              
       
