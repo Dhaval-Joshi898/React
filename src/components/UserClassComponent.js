@@ -20,6 +20,10 @@ class UserClass extends React.Component {
     this.setState({
       userInfo:json
     })
+
+    this.timer=setInterval(()=>{
+      console.log("React Namaste")
+    },1000)
     console.log("Component DID Mount")
   }
 
@@ -28,6 +32,7 @@ class UserClass extends React.Component {
   }
 
   componentWillUnmount(){
+    clearInterval(this.timer)
     console.log("Component Unmount(unmount means on page change) ")
   }
 
