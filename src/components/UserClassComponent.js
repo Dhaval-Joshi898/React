@@ -21,10 +21,10 @@ class UserClass extends React.Component {
       userInfo:json
     })
 
-    this.timer=setInterval(()=>{
-      console.log("React Namaste")
-    },1000)
-    console.log("Component DID Mount")
+    // this.timer=setInterval(()=>{
+    //   console.log("React Namaste")
+    // },1000)
+    // console.log("Component DID Mount")
   }
 
   componentDidUpdate(){
