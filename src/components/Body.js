@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -34,6 +35,16 @@ const Body = () => {
     //     return <Shimmer />   
     //  }
 
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus===false){
+        return(
+            <div>
+                <h1>Looks Like you are offline!! Check Your Internet connection</h1>
+            </div>
+        )   
+    }
+    
+    
     //THE Below code is like if else using TERNARY OPERATOR
     return listOfRestaurants.length === 0 ?
         <Shimmer /> : (
