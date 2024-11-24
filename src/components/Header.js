@@ -18,7 +18,7 @@ const Header = () => {
     <div className="header">
 
       <div id="header-logo-container">
-        <img src={LOGO_URL} alt="app-logo" />
+      <Link to="/"> <img  src={LOGO_URL} alt="app-logo" /> </Link>
       </div>
 
      
