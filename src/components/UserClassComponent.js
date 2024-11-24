@@ -16,11 +16,19 @@ class UserClass extends React.Component {
   async componentDidMount(){
     const data= await fetch("https://api.github.com/users/Dhaval-Joshi898")
     const json=await data.json()
-    console.log(json)
 
     this.setState({
       userInfo:json
     })
+    console.log("Component DID Mount")
+  }
+
+  componentDidUpdate(){
+    console.log("Component DID Update")
+  }
+
+  componentWillUnmount(){
+    console.log("Component Unmount(unmount means on page change) ")
   }
 
   render() {
