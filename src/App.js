@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{lazy, Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';    // you can write components/Header.js also 
 import Body from './components/Body';
@@ -8,7 +8,9 @@ import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu.js';
 import Cart from './components/Cart';
 import { createBrowserRouter, RouterProvider,Outlet } from 'react-router-dom';
-import Grocery from './components/Grocery.js';
+
+//lazy takes a callback function with import method inside it has path to that Grocery component
+const Grocery=lazy(()=>import('./components/Grocery.js'))
 
 const AppLayout = () => {
     return (
@@ -43,8 +45,8 @@ const appRouter = createBrowserRouter([
             element:<Cart/>
         },
         {
-            path:"/Grocery",
-            element:<Grocery/>
+            path:"/grocery",
+            element:<Suspense fallback={<h1>Loading.....</h1>}> <Grocery/> </Suspense>
         },
         {
             path:'/restaurant/:resId',
