@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = (props) => {
     console.log(props)
     let [count, setCount] = useState(0)
+
+    useEffect(()=>{
+      const timer=  setInterval(()=>{
+            console.log("Namaste React")
+        },1000)
+
+        return ()=>{
+            clearInterval(timer)
+            console.log("Timer stopped it is like unmounting component to stop setInterval")
+        }
+    },[])
 
     return (
         <div className="userInfo-container">
@@ -11,10 +22,10 @@ const User = (props) => {
                 setCount(count + 1)
 
             }}>Increase count</button>
-            <h2>Name:{props.data.name} data from props</h2>
+            <h2>Name:{props.name} data from props</h2>
             <h3>Developing FUNCTIONAL based components</h3>
             <h4>joshidhaval2002@gmail.com</h4>
-            <h4>{props.email}</h4>
+
         </div>
     )
 }
