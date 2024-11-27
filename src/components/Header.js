@@ -6,40 +6,40 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
   console.log("header render");
   let [changeBtn, setBtn] = useState("Login");
- 
+
   useEffect(() => {
     // console.log("use effect header");
   }, [changeBtn]);
-  
-  const onlineStatus=useOnlineStatus()
+
+  const onlineStatus = useOnlineStatus()
 
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
 
       <div id="header-logo-container">
-      <Link to="/"> <img  src={LOGO_URL} alt="app-logo" /> </Link>
+        <img className="w-24 m-5" src={LOGO_URL} /> 
       </div>
 
-     
-      <div className="nav-items">
-        <ul>
+
+      <div className="flex items-center">
+        <ul  className="flex p-4 m-4">
           <li>
-            Online Status :{onlineStatus?"🟢" : "🔴"}
+            Online Status :{onlineStatus ? "🟢" : "🔴"}
           </li>
-          <li>
+          <li  className="px-4">
             <Link to="/grocery">Grocery </Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/">Home </Link>
           </li>
-          <li>
+          <li className="px-4">
             <a href="/about">About us</a>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact us</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-4">Cart</li>
 
           <button
             className="log-btn"
