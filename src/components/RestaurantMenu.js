@@ -38,11 +38,11 @@ const RestaurantMenu = () => {
 
   return (
     <div className="text-center">
-      <h2 className="font-bold text-2xl my-4">{name}</h2>
+      <h2 className="font-bold text-2xl my-6">{name}</h2>
       <span className="font-bold text-lg"> {cuisines?.join(",")} - {costForTwoMessage}</span>
 
       {categories.map((category) => {
-        return <RestaurantCategory data={category.card.card}></RestaurantCategory>
+        return <RestaurantCategory key={category.card.card.id} data={category.card.card}></RestaurantCategory>
       })}
 
     </div>
