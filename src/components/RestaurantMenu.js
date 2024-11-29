@@ -2,11 +2,15 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
+import ItemList from "./ItemList";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // Destructuring resId from dynamic route
 
   const resInfo = useRestaurantMenu(resId)
+
+  const[showIndex,setShowIndex]=useState(0)
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -23,13 +27,6 @@ const RestaurantMenu = () => {
     //the first card is name to current element of array i.e json so it is like card{card:{card:{title}}}
   );
 
-  // console.log("recommendedCArdssssssssssss",recommendedCard)
-  // Extract itemCards from the "Recommended" card if it exists
-  const { itemCards } = recommendedCard?.card?.card || [];
-  // console.log("items cardsssssssss",itemCards)
-
-  // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-
   const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => {
     return c.card?.card?.["@type"] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
   })
@@ -41,8 +38,19 @@ const RestaurantMenu = () => {
       <h2 className="font-bold text-2xl my-6">{name}</h2>
       <span className="font-bold text-lg"> {cuisines?.join(",")} - {costForTwoMessage}</span>
 
-      {categories.map((category) => {
-        return <RestaurantCategory key={category.card.card.id} data={category.card.card}></RestaurantCategory>
+      {categories.map((category,index) => {
+        // console.log(category)
+
+        //Controlled Component
+        return <RestaurantCategory 
+        key={index} data={category.card.card} 
+        showItemList={index===showIndex && true}
+        // setShowIndex={()=>{setShowIndex(index)}}  // try inside setShowIndex console.log('setSHowindex',index)}}
+        setShowIndex={() => {
+          setShowIndex(showIndex === index ? null : index); // Toggle logic to close the open one if it is open
+        }}
+        index={index===showIndex}  
+        > </RestaurantCategory>
       })}
 
     </div>
