@@ -9,6 +9,8 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import Cart from "./components/Cart";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
 
 //lazy takes a callback function with import method inside it has path to that Grocery component
 const Grocery = lazy(() => import("./components/Grocery.js"));
@@ -23,16 +25,18 @@ const AppLayout = () => {
     };
 
     setUserName(data.name);
-  },[]);
+  }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInName: userName ,setUserName}}>
-      <div className="app-container">
-        <Header />
-        {/* <Body /> */}
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInName: userName, setUserName }}>
+        <div className="app-container">
+          <Header />
+          {/* <Body /> */}
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
